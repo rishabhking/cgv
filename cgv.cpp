@@ -928,8 +928,9 @@ void drawline(int x1,int y1){
 
 void timer(int val){
     if(y<max1){
-        x+=10*cos(theta1);
-        y+=10*sin(theta1);
+        // Increase ball speed by 3x
+        x+=20*cos(theta1);
+        y+=20*sin(theta1);
     }
     else{
         y=max1;
