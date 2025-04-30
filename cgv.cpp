@@ -1,6 +1,6 @@
 #include<iostream>
 #include<stdio.h>
-#include <GLUT/glut.h>
+#include<GLUT/glut.h>
 #include<math.h>
 #include <stdlib.h>
 #define PI 3.14159265
@@ -27,7 +27,6 @@ struct bubble{
     int color,v,vi;
 };
 struct bubble bubbles[15][12];
-//struct bubble *a = new struct bubble[10];
 void cols(){
     col1[0].r1=1;
     col1[3].r1=1;
@@ -44,10 +43,6 @@ static void resize(int width, int height)
     glViewport(0, 0, width, height);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    //glFrustum(-ar, ar, -1.0, 1.0, 2.0, 100.0);
-
-    //glMatrixMode(GL_MODELVIEW);
-    //glLoadIdentity() ;
 }
 
 int rand1(){
@@ -131,37 +126,9 @@ void inits(){
     }
 }
 
-/*void shooter(){
-    glColor3d(1,1,0);
-
-
-    glBegin(GL_POLYGON);
-    glVertex2d(x-20,y);
-    glVertex2d(x-60,y);
-    glVertex2d(x-60,y+40);
-    glVertex2d(x-20,y+35);
-    glEnd();
-    glBegin(GL_POLYGON);
-    glVertex2d(x-30,y);
-    glVertex2d(x-30,y+15);
-    glVertex2d(x+30,y+15);
-    glVertex2d(x+30,y);
-    glEnd();
-    glBegin(GL_POLYGON);
-    glVertex2d(x+20,y);
-    glVertex2d(x+60,y);
-    glVertex2d(x+60,y+40);
-    glVertex2d(x+20,y+35);
-    glEnd();
-
-
-}
-*/
  void display(void)
 {
     glClear(GL_COLOR_BUFFER_BIT);
-    //glColor3d(1,0,0);
-    //printf("%d",c1);
     glBegin(GL_POLYGON);
         glColor3d(1,1,1);
         glVertex2d(0,0);
@@ -172,7 +139,6 @@ void inits(){
         glColor3d(1,0.7,0.8);
         glVertex2d(0,640);
     glEnd();
-    //circle(240,320,500,1,0.75,0.8);
     cols();
     for(int j=0;j<15;j++){
         if(j%2==0){
@@ -194,7 +160,6 @@ void inits(){
     if(gover){
         gover1();
     }
-    //circle(20,620,20,col1[bubbles[0][0].color].r1,col1[bubbles[0][0].color].g1,col1[bubbles[0][0].color].b1);
     drawline(xl,yl);
     glColor3d(0,0,0);
     glBegin(GL_LINES);
@@ -896,7 +861,6 @@ static void key(int key, int x1, int y1)
     switch(key){
         case GLUT_KEY_LEFT : if(x>20&&reset==1) {xs-=220;x=xs;glutPostRedisplay();}break;
         case GLUT_KEY_RIGHT : if(x<460&&reset==1) {xs+=220;x=xs;glutPostRedisplay();}break;
-        //case GLUT_KEY_UP : calculate();break;
     }
     glutPostRedisplay();
 }
@@ -908,11 +872,9 @@ void mouse(int x1,int y1){
 
 void drawline(int x1,int y1){
      theta=atan2((640-(double)y1-20),((double)x1-xs));
-     //if(theta>1.570796325 && theta<4.712388975 ){
      if(theta>rbound){
         theta=rbound;
      }
-     //else{
      if(theta<lbound){
         theta=lbound;
      }
@@ -937,7 +899,6 @@ void timer(int val){
         for(int i=0;i<12;i++){
 
                 c2++;
-                //if(bubbles[(620-max1)/34][i].v==1){
             x3=(i*40)+20-x;
             y3=34;
             len = sqrt(x3*x3+y3*y3);
@@ -1002,7 +963,6 @@ void timer(int val){
 }
 
 void gover1(){
-        //glPointSize(10);
         glColor3f(1.0,0,0);
         glRasterPos2i(170,170);
         if(ck!=5){
