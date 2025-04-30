@@ -1,11 +1,10 @@
 #include<iostream>
 #include<stdio.h>
-#include<GLUT/glut.h>
+#include <GLUT/glut.h>
 #include<math.h>
-#include<stdlib.h>
+#include <stdlib.h>
 #define PI 3.14159265
 using namespace std;
-
 void go();
 void score();
 int rand1();
@@ -243,7 +242,7 @@ void dfs(int i,int j,int c){
                 dfs(i,j+1,c);
             }
         }
-        if(j=0){
+        if(j==0){
             if(bubbles[i+1][j].v==1&&bubbles[i+1][j].color==c&&bubbles[i+1][j].vi==0){
                 blast[c4].a=i+1;
                 blast[c4].b=j;
@@ -259,7 +258,7 @@ void dfs(int i,int j,int c){
                 dfs(i,j+1,c);
             }
         }
-        if(j=11){
+        if(j==11){
             if(bubbles[i+1][j-1].v==1&&bubbles[i+1][j-1].color==c&&bubbles[i+1][j-1].vi==0){
                 blast[c4].a=i+1;
                 blast[c4].b=j-1;
@@ -320,7 +319,7 @@ void dfs(int i,int j,int c){
                 dfs(i,j+1,c);
             }
         }
-        if(j=0){
+        if(j==0){
             if(bubbles[i-1][j].v==1&&bubbles[i-1][j].color==c&&bubbles[i-1][j].vi==0){
                 blast[c4].a=i-1;
                 blast[c4].b=j;
@@ -343,7 +342,7 @@ void dfs(int i,int j,int c){
                 dfs(i,j+1,c);
             }
         }
-        if(j=11){
+        if(j==11){
             if(bubbles[i-1][j-1].v==1&&bubbles[i-1][j-1].color==c&&bubbles[i-1][j-1].vi==0){
                 blast[c4].a=i-1;
                 blast[c4].b=j-1;
@@ -412,7 +411,7 @@ void dfs(int i,int j,int c){
                 dfs(i,j+1,c);
             }
         }
-        if(j=0){
+        if(j==0){
             if(bubbles[i-1][j+1].v==1&&bubbles[i-1][j+1].color==c&&bubbles[i-1][j+1].vi==0){
                 blast[c4].a=i-1;
                 blast[c4].b=j+1;
@@ -449,7 +448,7 @@ void dfs(int i,int j,int c){
                 dfs(i,j+1,c);
             }
         }
-        if(j=10){
+        if(j==10){
             if(bubbles[i-1][j+1].v==1&&bubbles[i-1][j+1].color==c&&bubbles[i-1][j+1].vi==0){
                 blast[c4].a=i-1;
                 blast[c4].b=j+1;
@@ -529,7 +528,7 @@ void dfs1(int i,int j){
                 dfs1(i,j+1);
             }
         }
-        if(j=0){
+        if(j==0){
             if(bubbles[i+1][j].v==1&&bubbles[i+1][j].vi==0){
 
                 blast[c4].a=i+1;
@@ -547,7 +546,7 @@ void dfs1(int i,int j){
                 dfs1(i,j+1);
             }
         }
-        if(j=11){
+        if(j==11){
             if(bubbles[i+1][j-1].v==1&&bubbles[i+1][j-1].vi==0){
                 blast[c4].a=i+1;
                 blast[c4].b=j-1;
@@ -614,7 +613,7 @@ void dfs1(int i,int j){
                 dfs1(i,j+1);
             }
         }
-        if(j=0){
+        if(j==0){
             if(bubbles[i-1][j].v==1&&bubbles[i-1][j].vi==0){
 
                 blast[c4].a=i-1;
@@ -640,7 +639,7 @@ void dfs1(int i,int j){
                 dfs1(i,j+1);
             }
         }
-        if(j=11){
+        if(j==11){
             if(bubbles[i-1][j-1].v==1&&bubbles[i-1][j-1].vi==0){
 
                 blast[c4].a=i-1;
@@ -710,7 +709,7 @@ void dfs1(int i,int j){
                 dfs1(i,j+1);
             }
         }
-        if(j=0){
+        if(j==0){
             if(bubbles[i-1][j+1].v==1&&bubbles[i-1][j+1].vi==0){
                 blast[c4].a=i-1;
                 blast[c4].b=j+1;
@@ -747,7 +746,7 @@ void dfs1(int i,int j){
                 dfs1(i,j+1);
             }
         }
-        if(j=10){
+        if(j==10){
             if(bubbles[i-1][j+1].v==1&&bubbles[i-1][j+1].vi==0){
                 blast[c4].a=i-1;
                 blast[c4].b=j+1;
@@ -884,7 +883,7 @@ void score()
     glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24,'R');
     glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24,'E');
     glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24,':');
-    glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24,' ');
+    glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24,'-');
     for(int i=c-1;i>=0;i--)
     {
          glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24,48+a[i]);
@@ -928,9 +927,8 @@ void drawline(int x1,int y1){
 
 void timer(int val){
     if(y<max1){
-        // Increase ball speed by 3x
-        x+=20*cos(theta1);
-        y+=20*sin(theta1);
+        x+=10*cos(theta1);
+        y+=10*sin(theta1);
     }
     else{
         y=max1;
